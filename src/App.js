@@ -3,7 +3,7 @@ import "./styles.css";
 import styled from "styled-components/macro";
 import { ReactComponent as CopySvg } from "./copy.svg";
 
-// region styles
+// #region styles
 const AppDiv = styled.div`
   font-family: "Open Sans", sans-serif;
   color: #ffffff;
