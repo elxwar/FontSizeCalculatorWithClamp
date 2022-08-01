@@ -3,7 +3,7 @@ import "./styles.css";
 import styled from "styled-components/macro";
 import { ReactComponent as CopySvg } from "./copy.svg";
 
-// #region styles
+// region styles
 const AppDiv = styled.div`
   font-family: "Open Sans", sans-serif;
   color: #ffffff;
@@ -89,10 +89,10 @@ const copyTxt = (txt) => {
 };
 
 export default function App() {
-  const [pixelsPerRem, setPixelsPerRem] = useState(10);
+  const [pixelsPerRem, setPixelsPerRem] = useState(16);
 
-  const [minWidthPx, setMinWidthPx] = useState(360);
-  const [maxWidthPx, setMaxWidthPx] = useState(1024);
+  const [minWidthPx, setMinWidthPx] = useState(340);
+  const [maxWidthPx, setMaxWidthPx] = useState(992);
   const [minFontSize, setMinFontSize] = useState(1);
   const [maxFontSize, setMaxFontSize] = useState(3.5);
 
@@ -102,9 +102,9 @@ export default function App() {
   const slope = (maxFontSize - minFontSize) / (maxWidth - minWidth);
   const yAxisIntersection = -minWidth * slope + minFontSize;
 
-  const clampFunc = `font-size: clamp(${minFontSize}rem, ${yAxisIntersection.toFixed(
+  const clampFunc = `font-size: clamp(${minFontSize}rem, calc(${yAxisIntersection.toFixed(
     4
-  )}rem + ${(slope * 100).toFixed(4)}vw, ${maxFontSize}rem);`;
+  )}rem + ${(slope * 100).toFixed(4)}vw), ${maxFontSize}rem);`;
 
   return (
     <AppDiv>
